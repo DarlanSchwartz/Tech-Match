@@ -8,7 +8,7 @@ import 'animate.css';
 export default function Card({ source }) {
     const [turned, setTurned] = useState(false);
     const [canTurn, setCanTurn] = useState(true);
-    const { turnedCards, setTurnedCards, cards, setTurnedCardsAmount,turnedCardsAmount} = useContext(MainContext);
+    const {turnedCards, setTurnedCards, cards, setTurnedCardsAmount,turnedCardsAmount} = useContext(MainContext);
 
     useEffect(() => {
         if (turnedCards && turnedCards.length > 1) {

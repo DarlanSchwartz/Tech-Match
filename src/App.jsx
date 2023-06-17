@@ -3,6 +3,7 @@ import Card from './Components/Card';
 import { styled } from 'styled-components';
 import MainContext from './Contexts/MainContext';
 import Navbar from './Components/Navbar';
+import StartConfig from './Components/StartConfig';
 
 export default function App() {
   const avaiableCards = [
@@ -38,30 +39,31 @@ export default function App() {
   const [cards, setCards] = useState([]);
   const [turnedCards, setTurnedCards] = useState(null);
   const [turnedCardsAmount,setTurnedCardsAmount] = useState(0);
+  const [gameStarted,setGameStarted] = useState(false);
 
-  useEffect(() => {
-    sortCards();
-  }, []);
 
+  function startGame(amountOfCards)
+  {
+    const gameCards = avaiableCards.slice(0,amountOfCards);
+    gameCards.sort(comparador);
+    setCards(gameCards);
+    setGameStarted(true);
+  }
 
   function comparador() {
     return Math.random() - 0.5;
   }
 
-  function sortCards()
-  {
-    const gameCards = avaiableCards.slice(0,4);
-    gameCards.sort(comparador);
-    setCards(gameCards);
-    
-  }
-
   return (
-    <MainContext.Provider value={{ cards, setCards, turnedCards, setTurnedCards,sortCards,setTurnedCardsAmount,turnedCardsAmount}}>
+    <MainContext.Provider value={{ cards, setCards, turnedCards, setTurnedCards,setTurnedCardsAmount,turnedCardsAmount,startGame,avaiableCards,gameStarted}}>
       <Navbar/>
-      <CardsContainer>
-        {cards.map((card, index) => <Card key={index} source={card} />)}
-      </CardsContainer>
+      {
+      gameStarted
+      ? <CardsContainer>
+              {cards.map((card, index) => <Card key={index} source={card} />)}
+            </CardsContainer>
+      : <StartConfig/>
+      }
     </MainContext.Provider>
   );
 }
