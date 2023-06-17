@@ -70,13 +70,15 @@ export default function App() {
 
 const CardsContainer = styled.div`
 
-  display: flex;
-  width: 83%;
-  flex-wrap: wrap;
-
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px;
-
+    display: flex;
+    width: 83%;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
 `;

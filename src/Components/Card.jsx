@@ -96,7 +96,6 @@ const CardDiv = styled.div`
     img{
         width: 80%;
         border-radius: 5px;
-        transition: all .5s;
         pointer-events: none;
         position: absolute;
     }
@@ -108,7 +107,4 @@ const CardDiv = styled.div`
         transform: rotateY(180deg);
         backface-visibility: hidden;
     }
-
-  
-
 `;
