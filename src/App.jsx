@@ -37,6 +37,7 @@ export default function App() {
   ];
   const [cards, setCards] = useState([]);
   const [turnedCards, setTurnedCards] = useState(null);
+  const [turnedCardsAmount,setTurnedCardsAmount] = useState(0);
 
   useEffect(() => {
     sortCards();
@@ -49,12 +50,14 @@ export default function App() {
 
   function sortCards()
   {
-    avaiableCards.sort(comparador);
-    setCards([...avaiableCards]);
+    const gameCards = avaiableCards.slice(0,4);
+    gameCards.sort(comparador);
+    setCards(gameCards);
+    
   }
 
   return (
-    <MainContext.Provider value={{ cards, setCards, turnedCards, setTurnedCards,sortCards}}>
+    <MainContext.Provider value={{ cards, setCards, turnedCards, setTurnedCards,sortCards,setTurnedCardsAmount,turnedCardsAmount}}>
       <Navbar/>
       <CardsContainer>
         {cards.map((card, index) => <Card key={index} source={card} />)}
