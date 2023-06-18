@@ -63,7 +63,7 @@ const StartConfigDiv = styled.div`
 
     max-width: 300px;
     width: 100%;
-    max-height: 250px;
+    max-height: 290px;
     height: 100%;
     background-color: #1b1b1b;
     border: 1px solid lightgray;
