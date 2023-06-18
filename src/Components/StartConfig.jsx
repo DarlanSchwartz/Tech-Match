@@ -105,7 +105,7 @@ const StartConfigDiv = styled.div`
         justify-content: center;
         width: 70%;
         gap: 2px;
-        height: 87px;
+        min-height: 107px;
         padding: 5% 5px 5px 5px;
         border-radius: 5px;
         border: 1px dashed white;
