@@ -1,6 +1,6 @@
 # Tech Match
 
-Welcome to the Programming Language Memory Game! This web-based game challenges your memory skills while showcasing popular programming language icons. Flip the cards and try to find all the matching pairs to win the game.
+Welcome to the Tech Match Memory Game! This web-based game challenges your memory skills while showcasing popular programming language icons. Flip the cards and try to find all the matching pairs to win the game.
 
 ## Demo
 
