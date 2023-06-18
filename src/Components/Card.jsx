@@ -92,7 +92,7 @@ export default function Card({ source }) {
 
     return (
         <CardDiv className={turned ? 'front-face' : 'back-face'} turned={turned.toString()} unturnable={(!canTurn).toString()} onClick={Turn}>
-            <img className="front" src={source} alt="" />
+            <img draggable='false' className="front" src={source} alt="" />
             <img className="back" src={backface} alt="" />
         </CardDiv>
     );
@@ -125,6 +125,7 @@ const CardDiv = styled.div`
         pointer-events: none;
         position: absolute;
         user-select: none;
+        pointer-events: none;
     }
 
     .back {
@@ -132,6 +133,6 @@ const CardDiv = styled.div`
     }
     .front{
         transform: rotateY(180deg);
-        
+        backface-visibility: hidden;
     }
 `;
