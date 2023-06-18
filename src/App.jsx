@@ -46,8 +46,9 @@ export default function App() {
   const { width, height } = useWindowSize();
 
   function startGame(amountOfCards) {
-    const gameCards = avaiableCards.slice(0, amountOfCards);
+    const gameCards = amountOfCards < avaiableCards.length ? avaiableCards.slice(0, amountOfCards) : [...avaiableCards];
     gameCards.sort(comparador);
+    console.log('amout:',amountOfCards,'total', avaiableCards.length)
     setCards(gameCards);
     setGameStarted(true);
   }

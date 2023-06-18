@@ -70,7 +70,8 @@ export default function Card({ source }) {
 
 
     function Turn() {
-        if(!canFlip)
+
+        if(!canFlip || turned)
         {
             return;
         }
@@ -131,6 +132,6 @@ const CardDiv = styled.div`
     }
     .front{
         transform: rotateY(180deg);
-        backface-visibility: hidden;
+        
     }
 `;
