@@ -6,7 +6,7 @@ import MainContext from "../Contexts/MainContext";
 
 export default function Navbar() {
     const [showOptions, setShowOptions] = useState(false);
-    const {gameStarted} = useContext(MainContext);
+    const {gameStarted,score} = useContext(MainContext);
 
     function restartGame ()
     {
@@ -20,6 +20,7 @@ export default function Navbar() {
 
             <NavbarDiv>
                 {gameStarted && <RxHamburgerMenu onClick={() => setShowOptions(true)} className="options-btn" />}
+                {gameStarted && <p className="score">Score:{score}</p>}
                 <img className="logo" src={logo} alt="pink head with brain inside" />
                 <h1>Tech Match</h1>
             </NavbarDiv>
@@ -43,6 +44,15 @@ const NavbarDiv = styled.header`
     align-items: center;
     gap: 20px;
     z-index: 2;
+
+    .score{
+        color: white;
+        position: fixed;
+        right: 70px;
+        top: 25px;
+        font-family: 'Mulish', sans-serif;
+        font-size: 30px;
+    }
 
     .logo{
         height: 60%;

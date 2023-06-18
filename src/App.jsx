@@ -53,6 +53,7 @@ export default function App() {
   const [cards, setCards] = useState([]);
   const [turnedCards, setTurnedCards] = useState(null);
   const [turnedCardsAmount, setTurnedCardsAmount] = useState(0);
+  const [score, setScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [canFlip, setCanFlip] = useState(true);
   const { width, height } = useWindowSize();
@@ -63,6 +64,12 @@ export default function App() {
     console.log('amout:',amountOfCards,'total', avaiableCards.length)
     setCards(gameCards);
     setGameStarted(true);
+    setScore(0);
+  }
+
+  function updateScore(value)
+  {
+    setScore((prev)=> {return prev + value});
   }
 
   function comparador() {
@@ -70,7 +77,7 @@ export default function App() {
   }
 
   return (
-    <MainContext.Provider value={{ cards, setCards, turnedCards, setTurnedCards, setTurnedCardsAmount, turnedCardsAmount, startGame, avaiableCards, gameStarted ,setCanFlip, canFlip}}>
+    <MainContext.Provider value={{ cards, setCards, turnedCards, setTurnedCards, setTurnedCardsAmount, turnedCardsAmount, startGame, avaiableCards, gameStarted ,setCanFlip, canFlip,score,updateScore}}>
       <Navbar />
       {
         gameStarted
