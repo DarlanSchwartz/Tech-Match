@@ -23,7 +23,7 @@ cd Tech-Match
 3. Install the dependencies:
 
 ```bash
-cd npm install
+npm install
 ```
 4. Start the development server:
 
@@ -31,7 +31,7 @@ cd npm install
 npm run dev
 ```
 
-5. Open your browser and visit http://localhost:3000 to play the game.
+5. Open your browser and visit http://localhost:5173 to play the game.
 
 ## How to Play
 
