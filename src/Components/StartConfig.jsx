@@ -77,6 +77,7 @@ const StartConfigDiv = styled.div`
     justify-content: center;
     flex-direction: column;
     gap: 30px;
+    
 
     .amount-container{
         display: flex;
@@ -105,6 +106,9 @@ const StartConfigDiv = styled.div`
         width: 70%;
         gap: 2px;
         height: 87px;
+        padding: 5% 5px 5px 5px;
+        border-radius: 5px;
+        border: 1px dashed white;
     }
 
     p{

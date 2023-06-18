@@ -5,10 +5,29 @@ import backface from '../../public/img/code.png';
 import Swal from "sweetalert2";
 import 'animate.css';
 
+// import img1 from "../../public/img/c-sharp.png"
+// import img2 from "../../public/img/C.png"
+// import img3 from "../../public/img/c++.png"
+// import img4 from "../../public/img/cmd.png"
+// import img5 from "../../public/img/css.png"
+// import img6 from "../../public/img/html.png"
+// import img7 from "../../public/img/javascript.png"
+// import img8 from "../../public/img/vscode.png"
+// import img9 from "../../public/img/github.png"
+// import img10 from "../../public/img/node.png"
+// import img11 from "../../public/img/npm.png"
+// import img12 from "../../public/img/rust.png"
+// import img13 from "../../public/img/python.png"
+// import img14 from "../../public/img/java.png"
+
+
 export default function Card({ source }) {
     const [turned, setTurned] = useState(false);
     const [canTurn, setCanTurn] = useState(true);
     const {turnedCards, setTurnedCards, cards, setTurnedCardsAmount,turnedCardsAmount} = useContext(MainContext);
+    
+
+    
 
     useEffect(() => {
         if (turnedCards && turnedCards.length > 1) {
@@ -19,7 +38,7 @@ export default function Card({ source }) {
                 if(turnedCardsAmount == cards.length -2)
                 {
                     Swal.fire({
-                        title: `<span style="font-family: 'Mulish', sans-serif;font-size: 20px;color:#1b1b1b;">You have won the game</span>`,
+                        title: `<span style="font-family: 'Mulish', sans-serif;font-size: 20px;color:#1b1b1b;"> You have won the game!</span>`,
                         showClass: {
                           popup: 'animate__animated animate__fadeInDown'
                         },
@@ -66,7 +85,7 @@ export default function Card({ source }) {
     }
 
     return (
-        <CardDiv className={turned ? 'front-face' : 'back-face'} turned={turned.toString()} onClick={Turn}>
+        <CardDiv className={turned ? 'front-face' : 'back-face'} turned={turned.toString()} unturnable={(!canTurn).toString()} onClick={Turn}>
             <img className="front" src={source} alt="" />
             <img className="back" src={backface} alt="" />
         </CardDiv>
@@ -90,6 +109,7 @@ const CardDiv = styled.div`
     justify-content: center;
     transform-style: preserve-3d;
     position: relative;
+    border: 2px solid ${(props) => props.unturnable == 'true' ? '#f01a90' : 'rgba(0,0,0,0)'};
 
     transform:${(props) => props.turned == 'true' ? ' rotateY(180deg)' : 'rotateY(0deg)'};
 

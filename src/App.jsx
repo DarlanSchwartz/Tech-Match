@@ -4,6 +4,8 @@ import { styled } from 'styled-components';
 import MainContext from './Contexts/MainContext';
 import Navbar from './Components/Navbar';
 import StartConfig from './Components/StartConfig';
+import Confetti from 'react-confetti';
+import useWindowSize from 'react-use/lib/useWindowSize';
 
 export default function App() {
   const avaiableCards = [
@@ -38,13 +40,12 @@ export default function App() {
   ];
   const [cards, setCards] = useState([]);
   const [turnedCards, setTurnedCards] = useState(null);
-  const [turnedCardsAmount,setTurnedCardsAmount] = useState(0);
-  const [gameStarted,setGameStarted] = useState(false);
+  const [turnedCardsAmount, setTurnedCardsAmount] = useState(0);
+  const [gameStarted, setGameStarted] = useState(false);
+  const { width, height } = useWindowSize();
 
-
-  function startGame(amountOfCards)
-  {
-    const gameCards = avaiableCards.slice(0,amountOfCards);
+  function startGame(amountOfCards) {
+    const gameCards = avaiableCards.slice(0, amountOfCards);
     gameCards.sort(comparador);
     setCards(gameCards);
     setGameStarted(true);
@@ -55,15 +56,20 @@ export default function App() {
   }
 
   return (
-    <MainContext.Provider value={{ cards, setCards, turnedCards, setTurnedCards,setTurnedCardsAmount,turnedCardsAmount,startGame,avaiableCards,gameStarted}}>
-      <Navbar/>
+    <MainContext.Provider value={{ cards, setCards, turnedCards, setTurnedCards, setTurnedCardsAmount, turnedCardsAmount, startGame, avaiableCards, gameStarted }}>
+      <Navbar />
       {
-      gameStarted
-      ? <CardsContainer>
-              {cards.map((card, index) => <Card key={index} source={card} />)}
-            </CardsContainer>
-      : <StartConfig/>
+        gameStarted
+          ? <CardsContainer>
+            {cards.map((card, index) => <Card key={index} source={card} />)}
+            {turnedCardsAmount == cards.length && <Confetti
+              width={width}
+              height={height}
+            />}
+          </CardsContainer>
+          : <StartConfig />
       }
+
     </MainContext.Provider>
   );
 }
@@ -81,4 +87,5 @@ const CardsContainer = styled.div`
     justify-content: center;
     align-items: center;
     height: fit-content;
+    overflow: hidden;
 `;
