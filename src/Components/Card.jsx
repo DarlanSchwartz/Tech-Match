@@ -24,10 +24,7 @@ import 'animate.css';
 export default function Card({ source }) {
     const [turned, setTurned] = useState(false);
     const [canTurn, setCanTurn] = useState(true);
-    const {turnedCards, setTurnedCards, cards, setTurnedCardsAmount,turnedCardsAmount} = useContext(MainContext);
-    
-
-    
+    const {turnedCards, setTurnedCards, cards, setTurnedCardsAmount,turnedCardsAmount,setCanFlip,canFlip} = useContext(MainContext);
 
     useEffect(() => {
         if (turnedCards && turnedCards.length > 1) {
@@ -57,11 +54,14 @@ export default function Card({ source }) {
                     });
                 }
             }
-            else {
+            else 
+            {
                 if (turnedCards[0] == source || turnedCards[1] == source) {
+                    setCanFlip(false);
                     setTimeout(() => {
                         setTurned(false);
                         setTurnedCards(null);
+                        setCanFlip(true);
                     }, 1000);
                 }
             }
@@ -70,6 +70,11 @@ export default function Card({ source }) {
 
 
     function Turn() {
+        if(!canFlip)
+        {
+            return;
+        }
+
         if (!canTurn || (turnedCards != null && turnedCards.length == 2)) {
             return;
         }
@@ -118,6 +123,7 @@ const CardDiv = styled.div`
         border-radius: 5px;
         pointer-events: none;
         position: absolute;
+        user-select: none;
     }
 
     .back {

@@ -42,6 +42,7 @@ export default function App() {
   const [turnedCards, setTurnedCards] = useState(null);
   const [turnedCardsAmount, setTurnedCardsAmount] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
+  const [canFlip, setCanFlip] = useState(true);
   const { width, height } = useWindowSize();
 
   function startGame(amountOfCards) {
@@ -56,7 +57,7 @@ export default function App() {
   }
 
   return (
-    <MainContext.Provider value={{ cards, setCards, turnedCards, setTurnedCards, setTurnedCardsAmount, turnedCardsAmount, startGame, avaiableCards, gameStarted }}>
+    <MainContext.Provider value={{ cards, setCards, turnedCards, setTurnedCards, setTurnedCardsAmount, turnedCardsAmount, startGame, avaiableCards, gameStarted ,setCanFlip, canFlip}}>
       <Navbar />
       {
         gameStarted
