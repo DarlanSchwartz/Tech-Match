@@ -16,15 +16,16 @@ export default function Navbar() {
     return (
         <>
             {showOptions && <Modal onClick={() => setShowOptions(false)} />}
-            <OptionsDiv show={showOptions.toString()}>
-                <button onClick={restartGame }>Restart</button>
-            </OptionsDiv>
+           
 
             <NavbarDiv>
                 {gameStarted && <RxHamburgerMenu onClick={() => setShowOptions(true)} className="options-btn" />}
                 <img className="logo" src={logo} alt="pink head with brain inside" />
                 <h1>Tech Match</h1>
             </NavbarDiv>
+            <OptionsDiv show={showOptions.toString()}>
+                <button onClick={restartGame }>Restart</button>
+            </OptionsDiv>
         </>
     );
 }
@@ -75,7 +76,7 @@ const OptionsDiv = styled.nav`
     right: ${(props) => props.show == 'true' ? '0' : '-300px'};
     top: 80px;
     transition: all 300ms;
-    z-index: 2;
+    z-index: 4;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -107,6 +108,6 @@ const Modal = styled.div`
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
-    z-index: 1;
+    z-index: 3;
 
 `;

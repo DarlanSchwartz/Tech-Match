@@ -11,6 +11,8 @@ export default function App() {
   const avaiableCards = [
     "./img/c-sharp.png",
     "./img/c-sharp.png",
+    "./img/vue.png",
+    "./img/vue.png",
     "./img/C.png",
     "./img/C.png",
     "./img/c++.png",
@@ -21,6 +23,8 @@ export default function App() {
     "./img/css.png",
     "./img/html.png",
     "./img/html.png",
+    "./img/react.png",
+    "./img/react.png",
     "./img/javascript.png",
     "./img/javascript.png",
     "./img/vscode.png",
@@ -37,6 +41,14 @@ export default function App() {
     "./img/python.png",
     "./img/java.png",
     "./img/java.png",
+    "./img/gpt.png",
+    "./img/gpt.png",
+    "./img/typescript.png",
+    "./img/typescript.png",
+    "./img/angular.png",
+    "./img/angular.png",
+    "./img/php.png",
+    "./img/php.png",
   ];
   const [cards, setCards] = useState([]);
   const [turnedCards, setTurnedCards] = useState(null);

@@ -93,7 +93,7 @@ export default function Card({ source }) {
     return (
         <CardDiv className={turned ? 'front-face' : 'back-face'} turned={turned.toString()} unturnable={(!canTurn).toString()} onClick={Turn}>
             <img draggable='false' className="front" src={source} alt="" />
-            <img className="back" src={backface} alt="" />
+            <img draggable='false' className="back" src={backface} alt="" />
         </CardDiv>
     );
 }
